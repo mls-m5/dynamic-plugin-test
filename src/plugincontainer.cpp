@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void checkError() {
+static void checkError() {
     char *error;
     if ((error = dlerror()) != NULL)  {
         cerr << error << endl;
@@ -17,7 +17,6 @@ void checkError() {
 
 PluginContainer::PluginContainer(std::string filename) {
 	cout << "laddar plugin " << filename << endl;
-	
 	
 	void *lib = dlopen(filename.c_str(), RTLD_NOW);
 	
