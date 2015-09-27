@@ -9,19 +9,19 @@ class DummyEngine: public IEngine {
 
 	virtual ~DummyEngine() {}
 	
-	bool Init(std::string name = "") override {}
+	bool init(std::string name = "") override {}
 	
-	bool Activate() override {}
+	bool activate() override {}
 	
-	bool Close() override {}
+	bool close() override {}
 	
-	void AddElement(class IElement *e) override {}
+	void addElement(class IElement *e) override {}
 	
-	void RemoveElement(class IElement *e) override {}
+	void removeElement(class IElement *e) override {}
 	
-	void SetVolume(double v) override {}
+	void setVolume(double v) override {}
 	
-	double GetVolume() override {}
+	double getVolume() override {}
 };
 
 

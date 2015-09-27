@@ -15,17 +15,19 @@ static void checkError() {
     }
 }
 
-PluginContainer::PluginContainer(std::string filename) {
+BaseContainer::BaseContainer(std::string filename, std::string createFunctionName) {
 	cout << "laddar plugin " << filename << endl;
 	
-	void *lib = dlopen(filename.c_str(), RTLD_NOW);
+	library = dlopen(filename.c_str(), RTLD_NOW);
 	
 	checkError();
 	
-	create = (decltype(&createPlugin)) dlsym(lib, "createPlugin");
+	createPointer = (decltype(createPointer)) dlsym(library, createFunctionName.c_str());
 }
 
 
-PluginContainer::~PluginContainer() {
+BaseContainer::~BaseContainer() {
 	cout << "stänger plugin" << endl;
+	
+	dlclose(library);
 }

@@ -8,13 +8,13 @@ class IEngine {
 public:
 	virtual ~IEngine() {}
 	
-	virtual bool Init(std::string name = "") = 0;
-	virtual bool Activate() = 0;
-	virtual bool Close() = 0;
-	virtual void AddElement(class IElement *e) = 0;
-	virtual void RemoveElement(class IElement *e) = 0;
-	virtual void SetVolume(double v) = 0;
-	virtual double GetVolume() = 0;
+	virtual bool init(std::string name = "") = 0;
+	virtual bool activate() = 0;
+	virtual bool close() = 0;
+	virtual void addElement(class IElement *e) = 0;
+	virtual void removeElement(class IElement *e) = 0;
+	virtual void setVolume(double v) = 0;
+	virtual double getVolume() = 0;
 };
 
 

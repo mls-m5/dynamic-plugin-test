@@ -1,5 +1,5 @@
 
-OBJ = main.o src/plugincontainer.o src/engineloader.o
+OBJ = main.o src/plugincontainer.o
 TARGET= librarytest
 CXXFLAGS= -std=c++11 -Iinclude/
 LIBS=  -ldl
@@ -22,5 +22,5 @@ run: all
 	./librarytest
 	
 clean:
-	rm -f .depend
+	rm -f .depend ${OBJ}
 	make -C src/ clean

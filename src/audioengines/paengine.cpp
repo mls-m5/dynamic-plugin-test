@@ -51,7 +51,7 @@ class PortAudioEngine: public IEngine {
 	
 	
 	
-	bool Init(std::string name = "") override {
+	bool init(std::string name = "") override {
 		if (stream) return 0;
 
 		PaStreamParameters inputParameters, outputParameters;
@@ -167,7 +167,7 @@ class PortAudioEngine: public IEngine {
 	
 	
 	
-	bool Activate() override {
+	bool activate() override {
 		PaError err;
 
 		err = Pa_StartStream( stream );
@@ -179,7 +179,7 @@ class PortAudioEngine: public IEngine {
 	
 	
 	
-	bool Close() override {
+	bool close() override {
 		printf("Finished. Shutting down portaudio" );
 		if (stream){
 			Pa_StopStream(stream);
@@ -196,19 +196,19 @@ class PortAudioEngine: public IEngine {
 	
 	
 	
-	void AddElement(class IElement *e) override {
+	void addElement(class IElement *e) override {
 		elementList.push_back(e);
 	}
 	
-	void RemoveElement(class IElement *e) override {
+	void removeElement(class IElement *e) override {
 		elementList.remove(e);
 	}
 	
-	void SetVolume(double v) override {
+	void setVolume(double v) override {
 		masterVolume = v;
 	}
 	
-	double GetVolume() override {
+	double getVolume() override {
 		return masterVolume;
 	}
 };

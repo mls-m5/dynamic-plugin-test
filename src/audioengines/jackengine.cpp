@@ -44,7 +44,7 @@ public:
 
 	virtual ~JackEngine() {}
 	
-	bool Init(std::string name = "") override {
+	bool init(std::string name = "") override {
 		if (initialized == true) {
 			return true;
 		}
@@ -166,7 +166,7 @@ public:
 
 	
 	
-	bool Activate() override {
+	bool activate() override {
 		//* Tell the JACK server that we are ready to roll.  Our
 		// * process() callback will start running now. */
 
@@ -223,7 +223,7 @@ public:
 	
 	
 	
-	bool Close() override {
+	bool close() override {
 		/* this is never reached but if the program
 		   had some other way to exit besides being killed,
 		   they would be important to call.
@@ -240,26 +240,26 @@ public:
 	
 	
 	
-	void AddElement(class IElement *e) override {
+	void addElement(class IElement *e) override {
 		elementList.push_back(e);
 	}
 	
 	
 	
 	
-	void RemoveElement(class IElement *e) override {
+	void removeElement(class IElement *e) override {
 		elementList.remove(e);
 	}
 	
 	
 	
-	void SetVolume(double v) override {
+	void setVolume(double v) override {
 		masterVolume = v;
 	}
 	
 	
 	
-	double GetVolume() override {
+	double getVolume() override {
 		return masterVolume;
 	}
 };
