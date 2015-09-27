@@ -5,6 +5,7 @@ CXXFLAGS= -std=c++11 -Iinclude/
 LIBS=  -ldl
 
 all: .depend ${TARGET}
+	make -C matmake/
 	make -C plugins/
 	make -C src/
 
